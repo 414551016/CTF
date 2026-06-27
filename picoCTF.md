@@ -1,5 +1,5 @@
 # picoCTF
-- [習題練習]()
+- [習題練習](https://github.com/414551016/CTF/blob/main/picoCTF.md#%E7%BF%92%E9%A1%8C%E7%B7%B4%E7%BF%92)
 ### 教學資源：
 - [picoCTF官網](https://www.cs.cmu.edu/outreach/programs/pico-ctf?utm_source=chatgpt.com)
 - [CMU CyLab Security Academy](https://picoctf.org/?utm_source=chatgpt.com)
