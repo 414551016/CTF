@@ -42,7 +42,7 @@ picoCTF 的題目種類，涵蓋多種資安領域，例如：
 
 
 
-# Reverse Engineering （逆向工程，常簡稱 RE）
+# Reverse Engineering
 Reverse Engineering（逆向工程，常簡稱 RE） 是資安與工程領域中的一項關鍵技能，指的是：從已完成的產品（或程式）反向分析它的內部結構與運作方式。
 
 
