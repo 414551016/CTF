@@ -26,4 +26,5 @@ picoCTF 的題目種類，涵蓋多種資安領域，例如：
 | Forensics           | 檔案鑑識、封包分析、圖片/metadata 分析   |
 | Reverse Engineering | 逆向工程、讀懂程式行為                |
 | Binary Exploitation | 記憶體漏洞、buffer overflow 等    |
+
 簡單說，picoCTF 很適合資安初學者入門，因為它不像真實攻擊環境那麼複雜，而是把資安知識拆成一個個可以練習的小任務。CMU 也把它定位成讓不同程度學習者能安全、動手練習 reverse-engineer、break、hack、decrypt 與解題思考的平台。
