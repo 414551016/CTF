@@ -33,8 +33,8 @@ picoCTF 的題目種類，涵蓋多種資安領域，例如：
 | Cryptography        | 密碼學、編碼、加解密                 |
 | Web Exploitation    | 網頁漏洞、SQL injection、XSS 等概念 |
 | Forensics           | 檔案鑑識、封包分析、圖片/metadata 分析   |
-| Reverse Engineering | 逆向工程、讀懂程式行為                |
-| [Binary Exploitation](https://github.com/414551016/CTF/blob/main/picoCTF.md#binary-exploitation-%E8%A8%98%E6%86%B6%E9%AB%94%E6%BC%8F%E6%B4%9Ebuffer-overflow-%E7%AD%89) | 記憶體漏洞、buffer overflow 等    |
+|[Reverse Engineering](https://github.com/414551016/CTF/blob/main/picoCTF.md#reverse-engineering) | 逆向工程、讀懂程式行為                |
+|[Binary Exploitation](https://github.com/414551016/CTF/blob/main/picoCTF.md#binary-exploitation-%E8%A8%98%E6%86%B6%E9%AB%94%E6%BC%8F%E6%B4%9Ebuffer-overflow-%E7%AD%89) | 記憶體漏洞、buffer overflow 等    |
 
 簡單說，picoCTF 很適合資安初學者入門，因為它不像真實攻擊環境那麼複雜，而是把資安知識拆成一個個可以練習的小任務。CMU 也把它定位成讓不同程度學習者能安全、動手練習 reverse-engineer、break、hack、decrypt 與解題思考的平台。[picoCTF官網](https://www.cs.cmu.edu/outreach/programs/pico-ctf?utm_source=chatgpt.com)
 
