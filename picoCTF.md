@@ -42,6 +42,11 @@ picoCTF 的題目種類，涵蓋多種資安領域，例如：
 
 # Binary Exploitation (記憶體漏洞、buffer overflow 等)
 Binary Exploitation（簡稱 pwn） 是資安領域中一個非常核心的技術，指的是：利用程式（binary 可執行檔）中的漏洞，來控制程式行為甚至取得系統權限。
+- Binary：已經編譯好的程式（沒有原始碼，例如 Linux 的 ELF、Windows 的 exe）
+- Exploitation：利用漏洞
+- Binary Exploitation = 合在一起就是：分析程式 + 找漏洞 + 利用漏洞
+- Binary Exploitation = 找出程式漏洞並控制程式執行流程的技術
+
 Binary Exploitation 是資安中研究「程式底層漏洞如何被利用」的領域，也是 CTF 中最能訓練攻擊者底層思維的題型之一。
 二進位漏洞利用、執行檔漏洞利用，CTF 中也常稱為 Pwn / Pwnable。它是資安領域中研究「已編譯好的程式或執行檔，如何因為記憶體或程式設計錯誤而被攻擊者利用」的一類技術。
 
@@ -49,17 +54,21 @@ Binary Exploitation 是資安中研究「程式底層漏洞如何被利用」的
 
 簡單總結：Binary Exploitation 是研究執行檔底層漏洞如何被發現、控制與利用的技術。它是 CTF 中非常重要的一類題型，也是理解記憶體安全、系統安全與攻擊者思維的重要基礎。
 
-例如一個 C 程式有這樣的問題：
-```
-char name[16]; 
-gets(name);
+### 核心目標
+Binary Exploitation 的最終目的通常是：
+- 讓程式執行你想要的指令（例如開 shell）
+- 繞過驗證（直接拿 flag）
+- 存取敏感資料（例如 /flag 檔案）
+- 簡單例子（直觀理解）：
+  - 程式本來：[ 使用者輸入 ] → 比對密碼 → 正確才給 flag
+  - Binary Exploitation 做什麼？
+    - ❌ 不走正常流程
+    - ✅ 直接「跳過驗證」或「強制執行 flag 函式」
 
-這段程式只準備了 16 bytes 的空間，但 gets() 不會檢查輸入長度。
-如果攻擊者輸入超過 16 個字元，就可能造成：Buffer Overflow，緩衝區溢位
-```
+
 
 ### Binary Exploitation 主要在學什麼？
-Reverse Engineering 是「看懂這個程式在做什麼」；Binary Exploitation 是「看懂後，找漏洞讓它做原本不該做的事」。
+R
 
 | 主題                | 說明                                 |
 | ----------------- | ---------------------------------- |
@@ -73,13 +82,16 @@ Reverse Engineering 是「看懂這個程式在做什麼」；Binary Exploitatio
 | 保護機制              | Canary、NX、PIE、ASLR                 |
 
 ### 和 Reverse Engineering 有何不同？
+everse Engineering 是「看懂這個程式在做什麼」；Binary Exploitation 是「看懂後，找漏洞讓它做原本不該做的事」。
 | 項目     | Reverse Engineering        | Binary Exploitation |
 | ------ | -------------------------- | ------------------- |
 | 中文     | 逆向工程                       | 二進位漏洞利用             |
 | 目的     | 看懂程式在做什麼                   | 找漏洞並利用漏洞            |
-| 重點     | 分析邏輯                       | 控制執行流程              |
+| 重點     | 分析邏輯(分析程式)                    | 控制執行流程              |
 | 常用工具   | Ghidra、IDA、strings、objdump | gdb、pwndbg、pwntools |
 | CTF 目標 | 找出密碼、演算法、flag 邏輯           | 透過漏洞取得 flag 或 shell |
+
+### 
 
 ### 從防禦者角度看，為何要學 Binary Exploitation？
 從資安防禦角度看，Binary Exploitation 的價值在於理解低階漏洞如何產生，進而知道為什麼需要安全程式設計、記憶體保護、輸入檢查、編譯器防護與系統防禦機制。
@@ -97,12 +109,49 @@ Reverse Engineering 是「看懂這個程式在做什麼」；Binary Exploitatio
   4. 練習 picoCTF 的簡單 overflow 題
   5. 再進入 ROP、Canary、PIE、ASLR 等進階保護機制
 
+### 常見攻擊方式
+- 1️⃣ Buffer Overflow（緩衝區溢位）
+  最經典也是最重要：
+  例如一個 C 程式有這樣的問題：
+  ```
+  char name[16]; 
+  gets(name); // 沒有限制長度
+  
+  這段程式只準備了 16 bytes 的空間，但 gets() 不會檢查輸入長度。
+  如果攻擊者輸入超過 16 個字元，就可能造成：Buffer Overflow，緩衝區溢位
+  ```
+  👉 輸入太長 → 覆蓋記憶體 → 改變程式流程，可以跳到你控制的程式碼
+- 2️⃣ Return Address 覆寫
+  - 利用 overflow 改變：👉 函式返回位置（return address）
+  - 讓程式跳到：
+    - system("/bin/sh")
+    - 或某個 hidden function（例如 win()）
+- 3️⃣ Format String 漏洞
+  ```
+  printf(user_input);
 
+  如果輸入 %x %x %x 可以讀記憶體，甚至可寫記憶體
+  ```
+- 4️⃣ ROP（Return-Oriented Programming）
+  當程式有保護（不能執行 shellcode）時：👉 利用現有程式片段（gadgets）組合攻擊
+- 5️⃣ Heap Exploitation
+  針對動態記憶體：
+  - Use After Free
+  - Double Free
+  - Heap overflow
 
+### 常見防護機制（你要繞過的）
+現代程式通常有防禦：👉 Binary Exploitation 的挑戰就是：⚔️ 想辦法繞過這些防護
+- 🛡️ NX（No Execute）：不能執行輸入資料
+- 🛡️ ASLR：記憶體位置隨機化
+- 🛡️ Stack Canary：防止 overflow
+- 🛡️ PIE：程式位置隨機
 
-
-
-
-
+### 常用工具
+你會用到這些工具：
+- 🔧 gdb → 除錯
+- 🔧 pwntools → 寫攻擊腳本
+- 🔧 checksec → 看保護機制
+- 🔧 ghidra / IDA → 反編譯
 
 
