@@ -41,6 +41,11 @@ picoCTF 的題目種類，涵蓋多種資安領域，例如：
 另外，picoCTF 原本是 picoCTF.org 平台；目前官方頁面顯示它已整合到 CMU CyLab Security Academy，但既有 picoCTF 帳號與學習紀錄仍可沿用。[CMU CyLab Security Academy](https://picoctf.org/?utm_source=chatgpt.com)
 
 
+
+# Reverse Engineering （逆向工程，常簡稱 RE）
+Reverse Engineering（逆向工程，常簡稱 RE） 是資安與工程領域中的一項關鍵技能，指的是：從已完成的產品（或程式）反向分析它的內部結構與運作方式。
+
+
 # Binary Exploitation (記憶體漏洞、buffer overflow 等)
 Binary Exploitation（簡稱 pwn） 是資安領域中一個非常核心的技術，指的是：利用程式（binary 可執行檔）中的漏洞，來控制程式行為甚至取得系統權限。
 - Binary：已經編譯好的程式（沒有原始碼，例如 Linux 的 ELF、Windows 的 exe）
