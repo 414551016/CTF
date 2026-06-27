@@ -41,6 +41,7 @@ picoCTF 的題目種類，涵蓋多種資安領域，例如：
 
 
 # Binary Exploitation (記憶體漏洞、buffer overflow 等)
+Binary Exploitation 是資安中研究「程式底層漏洞如何被利用」的領域，也是 CTF 中最能訓練攻擊者底層思維的題型之一。
 二進位漏洞利用、執行檔漏洞利用，CTF 中也常稱為 Pwn / Pwnable。它是資安領域中研究「已編譯好的程式或執行檔，如何因為記憶體或程式設計錯誤而被攻擊者利用」的一類技術。
 
 簡單說：Binary Exploitation 就是找出程式底層漏洞，並利用這些漏洞改變程式原本的執行流程。
