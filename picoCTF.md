@@ -42,6 +42,128 @@ picoCTF 的題目種類，涵蓋多種資安領域，例如：
 
 
 ---
+# Web Exploitation
+網頁漏洞利用、Web 漏洞利用，在 CTF / picoCTF 中常被歸類為 Web 題型。
+它的核心意思是：分析網站、網頁程式、HTTP 請求與後端邏輯，找出漏洞，並利用這些漏洞取得 flag 或未授權資料。
+簡單說，Web Exploitation 就是在研究：
+- 網站哪裡寫錯了？
+- 使用者輸入有沒有被檢查？
+- 權限驗證有沒有漏洞？
+- Cookie / Session 能不能被偽造？
+- 後端資料庫能不能被注入？
+
+簡單總結：Web Exploitation 是研究網站與 Web 應用程式漏洞如何產生、如何被利用，以及如何防禦的資安技術。
+更簡單說：它就是在訓練你看懂網站的請求、參數、權限與後端邏輯，找出網站安全漏洞。
+
+- 一、Web Exploitation 在 CTF 中通常做什麼？
+- 二、常見 Web Exploitation 題型
+- 三、簡單例子：SQL Injection
+- 四、簡單例子：Cookie 權限繞過
+- 五、Web Exploitation 常用工具
+- 六、和其他 CTF 題型的差異
+- 七、從防禦者角度看，為何要學 Web Exploitation？
+- 八、初學者學習順序
+
+### 一、Web Exploitation 在 CTF 中通常做什麼？
+```
+CTF 題目通常會給你一個網站，例如：http://challenge.picoctf.org:xxxxx
+你要透過瀏覽器、開發者工具、Burp Suite、curl 等工具觀察網站，找出 flag。
+
+常見目標包括：
+找出隱藏頁面
+繞過登入
+讀取後端資料
+修改 Cookie
+利用 SQL Injection
+利用 XSS
+利用檔案上傳漏洞
+讀取伺服器檔案
+```
+
+### 二、常見 Web Exploitation 題型
+| 題型                   | 說明                     |
+| -------------------- | ---------------------- |
+| HTML 原始碼檢查           | flag 或提示藏在 HTML 註解中    |
+| Robots.txt / Sitemap | 從網站設定檔找到隱藏路徑           |
+| Cookie 修改            | 修改 cookie 值取得 admin 權限 |
+| Session / JWT        | 分析或偽造登入狀態              |
+| SQL Injection        | 利用資料庫查詢漏洞繞過登入或讀資料      |
+| XSS                  | 注入 JavaScript 影響網頁行為   |
+| Command Injection    | 讓伺服器執行非預期系統指令          |
+| Directory Traversal  | 使用 `../` 讀取不該讀的檔案      |
+| File Upload          | 上傳惡意檔案或繞過副檔名檢查         |
+| IDOR                 | 修改 URL 參數存取別人的資料       |
+| SSRF                 | 讓伺服器幫你請求內部資源           |
+
+### 三、簡單例子：SQL Injection
+```
+假設網站登入邏輯是：
+SELECT * FROM users 
+WHERE username = '$user' AND password = '$pass';
+
+如果程式沒有檢查輸入，攻擊者輸入：' OR '1'='1 可能會讓查詢條件永遠成立，進而繞過登入。
+
+這就是典型的：SQL Injection，SQL 注入
+```
+
+### 四、簡單例子：Cookie 權限繞過
+```
+網站可能在 Cookie 裡存：role=user
+如果你把它改成：role=admin
+網站卻沒有在後端再次驗證，就可能錯誤地讓你進入管理員頁面。
+這類題目要學的是：權限不能只相信前端或使用者可修改的資料。
+```
+
+### 五、Web Exploitation 常用工具
+| 工具                   | 用途                        |
+| -------------------- | ------------------------- |
+| Browser DevTools     | 查看 HTML、JS、Network、Cookie |
+| Burp Suite           | 攔截與修改 HTTP 請求             |
+| curl                 | 用指令送 HTTP request         |
+| Postman              | 測試 API                    |
+| sqlmap               | 測試 SQL Injection          |
+| dirsearch / gobuster | 掃描隱藏路徑                    |
+| CyberChef            | 解碼、編碼、分析字串                |
+| jwt.io               | 分析 JWT token              |
+
+### 六、和其他 CTF 題型的差異
+Web Exploitation 是針對網站與 Web 應用程式的漏洞分析與利用。
+| 類型                  | 重點              |
+| ------------------- | --------------- |
+| Reverse Engineering | 看懂程式執行邏輯        |
+| Binary Exploitation | 利用執行檔記憶體漏洞      |
+| Forensics           | 從檔案、封包、紀錄中找證據   |
+| Cryptography        | 分析加密、編碼與數學問題    |
+| Web Exploitation    | 找網站、HTTP、後端邏輯漏洞 |
+
+### 七、從防禦者角度看，為何要學 Web Exploitation？
+```
+因為真實世界中，大量攻擊都發生在 Web 應用程式上。學會 Web Exploitation，可以幫助防禦者理解：
+為什麼輸入驗證很重要
+為什麼不能信任前端資料
+為什麼權限檢查要在後端做
+為什麼 Cookie / Session 要安全設計
+為什麼資料庫查詢要使用 prepared statement
+為什麼檔案上傳要嚴格限制
+```
+
+### 八、初學者學習順序
+```
+建議可以照這個順序：
+1. HTTP 基礎：GET、POST、Header、Cookie
+2. HTML / JavaScript 基礎
+3. Browser DevTools 使用
+4. Cookie / Session 概念
+5. SQL Injection
+6. XSS
+7. Directory Traversal
+8. File Upload
+9. Command Injection
+10. JWT / API 安全
+```
+
+
+---
 # Reverse Engineering
 Reverse Engineering（逆向工程，常簡稱 RE） 是資安與工程領域中的一項關鍵技能，指的是：從已完成的產品（或程式）反向分析它的內部結構與運作方式。
 逆向工程，在資安領域中，意思是「在沒有原始碼或完整說明文件的情況下，分析一個程式、執行檔、韌體或惡意程式，理解它內部如何運作」。簡單說：Reverse Engineering 是把已經編譯好的程式反過來拆解、觀察、分析，推回它原本的邏輯與行為。
