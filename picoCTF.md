@@ -186,7 +186,7 @@ input[i] ^ 0x13 == target[i]
 
 
 
-
+---
 # Binary Exploitation (記憶體漏洞、buffer overflow 等)
 Binary Exploitation（簡稱 pwn） 是資安領域中一個非常核心的技術，指的是：利用程式（binary 可執行檔）中的漏洞，來控制程式行為甚至取得系統權限。
 - Binary：已經編譯好的程式（沒有原始碼，例如 Linux 的 ELF、Windows 的 exe）
