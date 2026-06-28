@@ -42,6 +42,23 @@ picoCTF 的題目種類，涵蓋多種資安領域，例如：
 
 
 ---
+# Cryptography
+picoCTF 的 Cryptography 稱為：密碼學題型、加解密分析題型，也就是透過分析「加密、編碼、雜湊、數學運算」來找出 flag 的題目。
+picoCTF 是 CMU CyLab Security Academy 的免費資安學習平台，題目依不同資安主題與難度分類，其中就包含 Cryptography 類題目。[CyLab](https://picoctf.org/?utm_source=chatgpt.com)
+- 一、Cryptography 在 picoCTF 中主要學什麼？
+- 二、常見 picoCTF Cryptography 題型
+- 三、簡單例子：Caesar Cipher
+- 四、簡單例子：XOR 題
+- 五、簡單例子：RSA 題
+- 六、Cryptography 和 Encoding 的差異
+- 七、Cryptography 題目常用工具
+- 八、從防禦者角度看，為何要學 Cryptography？
+- 九、初學者學習順序
+- 十、簡單總結
+
+
+
+---
 # Web Exploitation
 網頁漏洞利用、Web 漏洞利用，在 CTF / picoCTF 中常被歸類為 Web 題型。
 它的核心意思是：分析網站、網頁程式、HTTP 請求與後端邏輯，找出漏洞，並利用這些漏洞取得 flag 或未授權資料。
