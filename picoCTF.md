@@ -30,7 +30,7 @@ picoCTF 的題目種類，涵蓋多種資安領域，例如：
 | 類型                  | 學習內容                       |
 | ------------------- | -------------------------- |
 | General Skills      | Linux 指令、檔案操作、基礎程式能力       |
-| Cryptography        | 密碼學、編碼、加解密                 |
+| [Cryptography](https://github.com/414551016/CTF/blob/main/picoCTF.md#cryptography)        | 密碼學、編碼、加解密                 |
 | [Web Exploitation](https://github.com/414551016/CTF/blob/main/picoCTF.md#web-exploitation)    | 網頁漏洞、SQL injection、XSS 等概念 |
 | Forensics           | 檔案鑑識、封包分析、圖片/metadata 分析   |
 |[Reverse Engineering](https://github.com/414551016/CTF/blob/main/picoCTF.md#reverse-engineering) | 逆向工程、讀懂程式行為                |
