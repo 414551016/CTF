@@ -5,6 +5,7 @@
 - [CMU CyLab Security Academy](https://picoctf.org/?utm_source=chatgpt.com)
 - [CyLab](https://learn.cylabacademy.org/get-started)
 - [HackStation](https://www.hackstation.io/)
+- [CTF入門指南](https://primer.picoctf.org/?utm_source=chatgpt.com)
 ### YouTube：
 - [什麼是 CTF？資安入門必看｜picoCTF 全攻略第一集｜新手從零開始學資安(05:41)](https://www.youtube.com/watch?v=TnklH2088ys) 發布者[Philemon.Aeletus](https://www.youtube.com/@philemon.aeletus)
 
@@ -72,7 +73,30 @@ xqkwKWI{...}
 你可能要判斷它是不是 Caesar cipher、Vigenère cipher、XOR、Base64、RSA 或其他加密方式。
 ```
 
+### 二、常見 picoCTF Cryptography 題型
+picoCTF 的 CTF Primer 中也介紹了 Caesar cipher、transposition cipher、RSA 等密碼學入門概念，並用小型程式練習加解密思維。
+| 題型                   | 說明                              |
+| -------------------- | ------------------------------- |
+| Caesar Cipher        | 字母位移，例如 A 變 D、B 變 E             |
+| ROT13                | Caesar cipher 的特殊形式，字母固定移動 13 位 |
+| Vigenère Cipher      | 使用 key 進行多字母位移加密                |
+| XOR                  | 每個字元與 key 做 XOR 運算              |
+| Base64 / Hex / ASCII | 編碼與解碼，不一定是真正加密                  |
+| Substitution Cipher  | 字母替換，例如 A 對應 Q、B 對應 W           |
+| Transposition Cipher | 不改變字元，只改變排列順序                   |
+| Hash Cracking        | 分析 MD5、SHA 等雜湊值，嘗試找回原文          |
+| RSA                  | 使用質數、模數、公開金鑰與私鑰的公鑰密碼系統          |
+| Frequency Analysis   | 用字母出現頻率破解古典密碼                   |
 
+### 三、簡單例子：Caesar Cipher
+```
+假設原文是：picoctf
+如果每個字母往後移 3 位，會變成：slfrfwi
+
+那解題時就要反過來，每個字母往前移 3 位：slfrfwi → picoctf
+
+這類題目訓練的是：看出字母位移規律，並反向還原。
+```
 
 
 ---
