@@ -15,6 +15,8 @@
 - [Root Me](https://www.root-me.org/?page=news&lang=fr)
   > 網址：https://www.root-me.org/?page=news&lang=fr
   >
+  > Usermane：NycuHunter
+  >
   > Password：CxyQ0OVem
 
 
