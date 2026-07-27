@@ -2,6 +2,8 @@
 
 - [雲端硬碟連結](https://drive.google.com/drive/folders/1tGR3TLIeE6bvQDw533YM_tJZaZgKAwJ1)
 - [CyLab](https://learn.cylabacademy.org/profile)
+  > 網址：https://learn.cylabacademy.org/account
+  >
   > Usermane：NycuHunter
   > 
   > Email：lss.cs14@nycu.edu.tw
